@@ -12,25 +12,26 @@
 <body>
     
     <section class="input">
-        <textarea name="" id="input" rows="10"></textarea>
+        <form action="">
+        <textarea name="" id="input" rows="10" placeholder="ingresar texto..." autofocus ></textarea>
+    </form>
     </section>
+
     <div class="encrypt">
-        <input type="text" id="password">
+        <input type="password" id="password">
         <button onclick="onEncrypt()">encrypt</button>
         <button onclick="onDecrypt()">decrypt</button>
     </div>
+
     <section class="output">
-        <div class="text-container">
+        <div class="output-text">
             <p id="output">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur magni optio itaque ipsam. Voluptatibus
-                facilis cumque ut voluptas qui, at est maxime quasi magni explicabo, blanditiis saepe reprehenderit
-                nesciunt
-                natus?
+               <span>_</span> 
             </p>
         </div>
 
-        <div class="button-container">
-            <button onclick="onCopy()">copy</button>
+        <div class="output-button">
+            <button onclick="onCopy()">copiar</button>
         </div>
     </section>
 

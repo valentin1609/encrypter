@@ -81,8 +81,6 @@ function decrypt(input, wordCode) {
   
 }
 
-
-
 function defaultEncrypt(input) {
   let newText = "";
   for (let i = 0; i < input.length; i++) {

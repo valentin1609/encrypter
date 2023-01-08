@@ -1,64 +1,168 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
+  --bg: #161616;
+  --bg2: #1b1b1b;
+  --principal: #36f097;
+  font-size: 18px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
 body {
-    background-color: black;
-    display: flex;
-    flex-wrap: nowrap;
-    height: 100vh;
-    width: 100%;
-    margin: 0;
-    padding: 3em;
+  background-color: var(--bg);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 3em;
 }
 
+/* input y output seccions */
 section {
-    width: 30%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 1em;
-    background-color: darkgrey;
+  width: 30%;
+  height: 100%;
+  padding: 1em;
+  background-color: linear-gradient(to bottom, var(--bg2) 0%, #00000000 100%) 1;
+
+  border: 1px solid;
+  border-image: linear-gradient(to bottom, var(--principal) 0%, #00000000 100%) 1;
 }
 
+/* input  */
 .input textarea {
-    resize: none;
-    width: 100%;
-    height: 100%;
-    
-    /* sobreescribiendo estilos por default */
-    border: none;
-    padding: 1em;
-}
+  resize: none;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  color: var(--principal);
+  text-align: justify;
+  letter-spacing: 2px;
 
+  /* sobreescribiendo estilos por default */
+  border: none;
+  padding: 0;
+}
 .input textarea:focus-visible {
-    outline: none;
-}
-.output{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  outline: none;
+  background-color: transparent;
 }
 
-.output .text-container {
-    width: 100%;
+/* output  */
+.output {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.output .button-container {
-width: 100%;
-display: flex;
-justify-content: center;
+.output-text {
+  width: 100%;
+  color: var(--principal);
+  letter-spacing: 2px;
+  text-align: justify;
+}
+.output-text p {
+  margin: 0;
 }
 
 
+.output-button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-
+/* encriptacion seccion  */
 .encrypt {
-    width: 20%;
-    height: 100%;
-    background-color: darkgrey;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.5em;
-    padding: 1em;
+  width: 27%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  margin-top: 50px;
+}
+
+/* contraseña */
+#password {
+  background-color: transparent;
+  border: 1px solid var(--principal);
+  padding: 0.5em 1em;
+  width: 100%;
+  margin-bottom: 1em;
+  color: var(--principal);
+
+  background-image: url("shield-keyhole-line.png");
+  background-position: 7px 8px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+}
+#password:focus {
+  background-color: #1b1b1b;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--principal);
+}
+
+/* botones de encriptar y desencriptar */
+.encrypt button {
+  background-color: transparent;
+  border-left: 3px solid var(--principal);
+  border-bottom: 1px solid var(--principal);
+  border-top: 1px solid var(--principal);
+  border-right: 3px solid var(--principal);
+  padding: 0.4em 0;
+  width: 80%;
+  color: #36f097;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+.encrypt button:last-child {
+  background-color: rgba(54, 240, 150, 0.2);
+}
+.encrypt button:hover {
+  box-shadow: 0 1px 5px 1px var(--principal);
+  cursor: pointer;
+}
+
+
+/* boton copiar */
+.output-button button {
+  width: 80%;
+  background-color: rgba(54, 240, 150, 0.2);
+  border: none;
+  border-radius: 15px;
+  padding: 0.5em 0;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--principal);
+}
+.output-button button:hover {
+  cursor: pointer;
+}
+.output-button button:active {
+  color: transparent;
+}
+
+
+/* animacion de console */
+span {
+  animation: 1s console ease 5;
+}
+@keyframes console {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  51% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
