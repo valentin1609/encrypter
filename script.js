@@ -1,6 +1,6 @@
 var getPassword = document.getElementById("password");
 var getInput = document.getElementById("input");
-
+ 
 function getWordCode(password) {
   let wordCode = 0;
   for (let i = 0; i < password.length; i++) {
