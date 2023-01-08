@@ -1,6 +1,15 @@
 var getPassword = document.getElementById("password");
 var getInput = document.getElementById("input");
 
+function getWordCode(password) {
+  let wordCode = 0;
+  for (let i = 0; i < password.length; i++) {
+    wordCode += password[i].codePointAt();
+    //************si la palabra tiene las mismas letras, tendra el mismo codigo******************************//
+  }
+  return wordCode;
+}
+
 function onEncrypt() {
   let password = getPassword.value;
   let input = getInput.value;
@@ -37,17 +46,6 @@ function onDecrypt() {
     document.getElementById("output").textContent = newText;
   }
 }
-
-function getWordCode(password) {
-  let wordCode = 0;
-  for (let i = 0; i < password.length; i++) {
-    wordCode += password[i].codePointAt();
-    //************si la palabra tiene las mismas letras, tendra el mismo codigo******************************//
-  }
-  return wordCode;
-}
-
-
 
 function encrypt(input, wordCode) {
   let newText = "";
@@ -111,4 +109,9 @@ function defaultDecrypt(input) {
     .replaceAll("ober", "o")
     .replaceAll("ufat", "u");
   return newText;
+}
+
+function onCopy() {
+  var text = document.getElementById("output").innerText;
+  navigator.clipboard.writeText(text);
 }
