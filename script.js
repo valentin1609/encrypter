@@ -7,7 +7,11 @@ function onEncrypt() {
 
   if (password == "") {
     //codificacion por defecto()
-  } else {
+    let newText = defaultEncrypt(input);
+
+    document.getElementById("output").textContent = newText;
+  } 
+  else {
     //codificacion por contraseña
     let wordCode = getWordCode(password);
     let newText = encrypt(input, wordCode);
@@ -19,9 +23,14 @@ function onEncrypt() {
 function onDecrypt() {
   let password = getPassword.value;
   let input = getInput.value;
+
   if (password == "") {
     //decodificacion por defecto()
-  } else {
+    let oldText = defaultDecrypt(input);
+
+    document.getElementById("output").textContent = oldText;
+  } 
+  else {
     let wordCode = getWordCode(password);
     let newText = decrypt(input, wordCode);
 
@@ -38,16 +47,21 @@ function getWordCode(password) {
   return wordCode;
 }
 
+
+
 function encrypt(input, wordCode) {
   let newText = "";
   for (let i = 0; i < input.length; i++) {
-    let letterCode = input[i].codePointAt(); //obtengo el codigo de la letra
-    let newLetterCode = letterCode + wordCode; //le sumo el valor de la contraseña para obtener otra letra
-    let newLetter = String.fromCodePoint(newLetterCode); //desencripto la nueva letra
-    newText = newText + newLetter; //agrego la letra al nuevo texto
+    //obtengo el codigo de la letra:
+    let letterCode = input[i].codePointAt(); 
+    //le sumo el valor de la contraseña para obtener otra letra:
+    let newLetterCode = letterCode + wordCode; 
+    //obtengo la nueva letra a partir del nuevo codigo:
+    let newLetter = String.fromCodePoint(newLetterCode); 
+    newText = newText + newLetter; 
   }
   return newText;
-  //*********si el codigo de la letra + la contraseña es muy alto sobrepasara el valor de unicode: Invalid code point*************/
+//si el codigo de la letra + la contraseña es muy alto sobrepasara el valor de unicode.
 }
 
 function decrypt(input, wordCode) {
@@ -58,5 +72,43 @@ function decrypt(input, wordCode) {
     let newLetter = String.fromCodePoint(newLetterCode);
     newText = newText + newLetter;
   }
+  return newText;
+}
+
+function defaultEncrypt(input) {
+  let newText = "";
+  for (let i = 0; i < input.length; i++) {
+    letter = input[i];
+    switch (letter) {
+      case "a":
+        letter = "ai";
+        break;
+      case "e":
+        letter = "enter";
+        break;
+      case "i":
+        letter = "imes";
+        break;
+      case "o":
+        letter = "ober";
+        break;
+      case "u":
+        letter = "ufat";
+        break;
+      default:
+        break;
+    }
+    newText = newText + letter;
+  }
+  return newText;
+}
+
+function defaultDecrypt(input) {
+  let newText = input
+    .replaceAll("ai", "a")
+    .replaceAll("enter", "e")
+    .replaceAll("imes", "i")
+    .replaceAll("ober", "o")
+    .replaceAll("ufat", "u");
   return newText;
 }
