@@ -182,5 +182,17 @@ span {
     height: 100%;
   }
 
+}
+
+@media screen and (min-height: 900px) {
+ body{ 
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ }
+ section, .encrypt{
+  width: 70%;
+  max-width: 1200px;
+ }
 
 }
