@@ -1,3 +1,6 @@
+![image](https://user-images.githubusercontent.com/104102755/213705374-8cdf5074-383b-4893-9bdd-ee5ca164b561.png)
+
+
 # encrypter
 Encriptador de texto
 Este proyecto consiste en una aplicación que permite encriptar y desencriptar texto utilizando una contraseña o una clave por defecto.
